@@ -9,5 +9,5 @@ def graph(x, y):
 	plt.show()
 
 if __name__ == '__main__':
-	data = json.loads(requests.get('https://coagmet.colostate.edu/data/daily.json?from=1991-01-01&to=now&fields=tMax').text)
+	data = json.loads(requests.get('https://coagmet.colostate.edu/data/nw/daily/bld02.json?from=start&to=now&fields=tMax').text)
 	print(data)
