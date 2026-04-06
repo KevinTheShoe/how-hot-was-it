@@ -13,4 +13,4 @@ def getAsDF():
 		dates.append(d)
 		temps.append(t)
 
-	return pd.DataFrame({'time': dates, 'temps': temps})
+	return pd.DataFrame({'time': dates, 'temp': temps})

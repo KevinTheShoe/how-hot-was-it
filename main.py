@@ -2,4 +2,7 @@ import graphing
 import temps
 
 if __name__ == '__main__':
-	print(temps.getAsDF())
+	df = temps.getAsDF()
+	df_filtered = df[df['time'].str.endswith('-04-05')]
+	print(df_filtered)
+	graphing.graphDates(df_filtered['time'], df_filtered['temp'])
