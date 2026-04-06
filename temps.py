@@ -10,11 +10,10 @@ def getJsonAsDF():
 	temps = []
 
 	for d, t in zip(data["time"], data["tMax"]):
-		dates.append(d[:7])
+		dates.append(d)
 		temps.append(t)
 		
 	df = pd.DataFrame({'time': dates, 'temp': temps})
-	df = df.groupby('time', as_index=False)['temp'].mean()
 
 	return df
 
