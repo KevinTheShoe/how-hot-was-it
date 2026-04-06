@@ -17,6 +17,3 @@ def getAsDF():
     df = df.groupby('time', as_index=False)['temp'].mean()
 
     return df
-
-df = getAsDF()
-print(df)
