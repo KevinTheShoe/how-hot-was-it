@@ -3,7 +3,7 @@ import seaborn as sns
 import pandas as pd
 import mplcursors
 
-def monthOverlaid(df, month='03'):
+def monthOverlaid(df, month, title, xlabel, ylabel):
 	sns.set_theme()
 	fig, ax = plt.subplots(figsize=(16, 9))
 
@@ -13,14 +13,13 @@ def monthOverlaid(df, month='03'):
 
 	mplcursors.cursor(highlight=True)
 
-	ax.set(title='Month of March Daily High Temps Overlaid', xlabel='Day of March', ylabel='High Temp (Fahrenheit)')
+	ax.set(title=title, xlabel=xlabel, ylabel=ylabel)
 	ax.margins(x=0)
-	ax.set(ylim=(0, 100))
 
 	plt.tight_layout()
 	plt.show()
 
-def monthBoxplot(df, month='03'):
+def monthBoxplot(df, month, title, xlabel, ylabel):
 	sns.set_theme()
 	fig, ax = plt.subplots(figsize=(16, 9))
 
@@ -33,12 +32,12 @@ def monthBoxplot(df, month='03'):
 
 	x_dates = sorted(list(set(new_df['time'].str[:4])))
 	ax.set_xticklabels(labels=x_dates, ha='right')
-	ax.set(title='Month of March High Temp Distributions Per Year', xlabel='Year', ylabel='High Temp (Fahrenheit)')
+	ax.set(title=title, xlabel=xlabel, ylabel=ylabel)
 
 	plt.tight_layout()
 	plt.show()
 
-def dayLineplot(df, day='03-19'):
+def dayLineplot(df, day, title, xlabel, ylabel):
 	sns.set_theme()
 	fig, ax = plt.subplots(figsize=(16, 9))
 
@@ -47,8 +46,7 @@ def dayLineplot(df, day='03-19'):
 
 	x_dates = sorted(list(set(new_df['time'])))
 	ax.set_xticklabels(labels=x_dates, rotation=45, ha='right')
-	ax.set(title=f'High Temp For {day} of Each Year', xlabel='Day', ylabel='High Temp (Fahrenheit)')
-	ax.set(ylim=(0, 100))
+	ax.set(title=title, xlabel=xlabel, ylabel=ylabel)
 
 	plt.tight_layout()
 	plt.show()

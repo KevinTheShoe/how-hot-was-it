@@ -8,6 +8,6 @@ def clean(df):
 if __name__ == '__main__':
 	df = temps.getJsonAsDF()
 	df = clean(df)
-	graphing.monthOverlaid(df)
-	graphing.monthBoxplot(df)
-	graphing.dayLineplot(df)
+	graphing.monthOverlaid(df, '03', 'Month of March Daily High Temps Overlaid', 'Day of March', 'High Temp (Fahrenheit)')
+	graphing.monthBoxplot(df, '03', 'Month of March High Temp Distributions Per Year', 'Year', 'High Temp (Fahrenheit)')
+	graphing.dayLineplot(df, '03-19', 'High Temp For March 19th of Each Year', 'Day', 'High Temp (Fahrenheit)')
