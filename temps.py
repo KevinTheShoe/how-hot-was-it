@@ -1,8 +1,7 @@
-import requests
 import pandas as pd
 
 def getData(fields=['tAvg','tMin','tMax']):
-	url = f'https://coagmet.colostate.edu/data/nw/daily/bld02.json?dateFmt=iso&from=start&to=now&fields={','.join(fields)}'
+	url = f'https://coagmet.colostate.edu/data/nw/daily/bld01.json?dateFmt=iso&from=start&to=now&fields={','.join(fields)}'
 	
 	# pull data
 	data = pd.read_json(url)
