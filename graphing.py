@@ -15,7 +15,7 @@ def monthOverlaid(df, month, y, title, xlabel, ylabel):
 
 	ax.set(title=title, xlabel=xlabel, ylabel=ylabel)
 	ax.margins(x=0)
-	ax.legend(loc='left')
+	ax.legend(loc='lower left')
 
 	plt.tight_layout()
 	plt.show()
