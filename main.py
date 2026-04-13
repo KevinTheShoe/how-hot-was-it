@@ -8,6 +8,6 @@ def clean(df):
 if __name__ == '__main__':
 	df = temps.getJsonAsDF()
 	df = clean(df)
-	graphing.monthOverlaid(df, '03')
-	graphing.monthBoxplot(df, '03')
-	graphing.dayLineplot(df, '03-19')
+	graphing.monthOverlaid(df)
+	graphing.monthBoxplot(df)
+	graphing.dayLineplot(df)

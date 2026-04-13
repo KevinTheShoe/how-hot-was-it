@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
-def monthOverlaid(df, month):
+def monthOverlaid(df, month='03'):
 	sns.set_theme()
 	fig, ax = plt.subplots(figsize=(16, 9))
 
@@ -17,7 +17,7 @@ def monthOverlaid(df, month):
 	plt.tight_layout()
 	plt.show()
 
-def monthBoxplot(df, month):
+def monthBoxplot(df, month='03'):
 	sns.set_theme()
 	fig, ax = plt.subplots(figsize=(16, 9))
 
@@ -35,7 +35,7 @@ def monthBoxplot(df, month):
 	plt.tight_layout()
 	plt.show()
 
-def dayLineplot(df, day):
+def dayLineplot(df, day='03-19'):
 	sns.set_theme()
 	fig, ax = plt.subplots(figsize=(16, 9))
 
