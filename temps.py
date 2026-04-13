@@ -1,7 +1,7 @@
 import pandas as pd
 
-def getData(fields=['tAvg','tMin','tMax']):
-	url = f"https://coagmet.colostate.edu/data/nw/daily/bld01.json?dateFmt=iso&from=start&to=now&fields={','.join(fields)}"
+def getData(station, isNW, fields=['tAvg','tMin','tMax']):
+	url = f"https://coagmet.colostate.edu/data/{'nw/' if isNW else ''}daily/{station}.json?dateFmt=iso&from=start&to=now&fields={','.join(fields)}"
 	
 	# pull data
 	data = pd.read_json(url)
@@ -18,8 +18,8 @@ def getData(fields=['tAvg','tMin','tMax']):
 
 	return data
 
-def getDataCSV(fields=['tAvg','tMin','tMax']):
-	url = f"https://coagmet.colostate.edu/data/nw/daily/bld01.csv?dateFmt=iso&from=start&to=now&fields={','.join(fields)}"
+def getDataCSV(station, isNW, fields=['tAvg','tMin','tMax']):
+	url = f"https://coagmet.colostate.edu/data/{'nw/' if isNW else ''}daily/{station}.csv?dateFmt=iso&from=start&to=now&fields={','.join(fields)}"
 	
 	# pull data
 	data = pd.read_csv(url, header=None, names=['station id', 'time'] + fields)
