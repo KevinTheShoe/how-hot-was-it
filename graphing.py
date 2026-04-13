@@ -29,7 +29,7 @@ def monthBoxplot(df, month, y, title, xlabel, ylabel):
 	new_df[y] = df[y]
 	# new_df = new_df.groupby('time', as_index=False)['temp'].max()
 	new_df = new_df[new_df['time'].str.endswith(f'-{month}')]
-	fig = sns.boxplot(data=new_df, x='time', y=y)
+	fig = sns.boxplot(data=new_df, x='time', y=y, showfliers=False)
 
 	x_dates = sorted(list(set(new_df['time'].str[:4])))
 	ax.set_xticklabels(labels=x_dates, ha='right')
