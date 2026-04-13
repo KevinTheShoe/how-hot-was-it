@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+import mplcursors
 
 def monthOverlaid(df, month='03'):
 	sns.set_theme()
@@ -9,6 +10,8 @@ def monthOverlaid(df, month='03'):
 	for year in range(2003, 2027):
 		new_df = df[df['time'].str.startswith(f'{year}-{month}')]
 		fig = sns.lineplot(x=new_df['time'].str[8:], y=new_df['temp'], ax=ax, label=year, linewidth=(1 if year != 2026 else 3), alpha=(0.5 if year != 2026 else 1))
+
+	mplcursors.cursor(highlight=True)
 
 	ax.set(title='Month of March Daily High Temps Overlaid', xlabel='Day of March', ylabel='High Temp (Fahrenheit)')
 	ax.margins(x=0)
