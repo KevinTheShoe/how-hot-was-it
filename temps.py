@@ -18,11 +18,11 @@ def getData(station, isNW, fields=['tAvg','tMin','tMax']):
 
 	return data
 
-def getDataCSV(station, isNW, fields=['tAvg','tMin','tMax']):
-	url = f"https://coagmet.colostate.edu/data/{'nw/' if isNW else ''}daily/{station}.csv?dateFmt=iso&from=start&to=now&fields={','.join(fields)}"
+def getAllStationDataCSV(fields=['tMax']):
+	url = f"https://coagmet.colostate.edu/data/daily.csv?from=1991-01-01&to=now&dateFmt=iso&fields={','.join(fields)}"
 	
 	# pull data
-	data = pd.read_csv(url, header=None, names=['station id', 'time'] + fields)
+	data = pd.read_csv(url, header=None, names=['sid', 'time'] + fields)
 	
 	# limit to desired fields
 	data = data[['time'] + fields]

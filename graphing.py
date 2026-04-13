@@ -7,7 +7,7 @@ def monthOverlaid(df, month, y, title, xlabel, ylabel):
 	sns.set_theme()
 	fig, ax = plt.subplots(figsize=(16, 9))
 
-	for year in range(2000, 2027):
+	for year in range(1990, 2027):
 		new_df = df[df['time'].str.startswith(f'{year}-{month}')]
 		fig = sns.lineplot(x=new_df['time'].str[8:], y=new_df[y], ax=ax, label=year, linewidth=(1 if year != 2026 else 3), alpha=(0.5 if year != 2026 else 1))
 
@@ -15,7 +15,8 @@ def monthOverlaid(df, month, y, title, xlabel, ylabel):
 
 	ax.set(title=title, xlabel=xlabel, ylabel=ylabel)
 	ax.margins(x=0)
-	ax.legend(loc='lower left')
+	ax.set(ylim=(0, 100))
+	sns.move_legend(ax, "lower center", bbox_to_anchor=(0.5, 0), ncol=12, title=None, frameon=False)
 
 	plt.tight_layout()
 	plt.show()
